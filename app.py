@@ -126,7 +126,6 @@ st.markdown("""
 <div class="title-box">
     <h1>🚗 SmartCar AI</h1>
     <p>Predict used car prices & find your perfect car match — powered by Machine Learning</p>
-    <p style="color:#555566; font-size:0.8rem;">Summer Training Project · UIT Prayagraj · CarDekho Dataset</p>
 </div>
 """, unsafe_allow_html=True)
 
