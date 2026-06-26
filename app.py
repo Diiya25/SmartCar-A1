@@ -389,4 +389,4 @@ with tab2:
 
 # ─── Footer ────────────────────────────────────────────────────────────────────
 st.markdown("---")
-st.markdown("<center><span style='color:#555;font-size:0.8rem;'>SmartCar AI · Summer Training Project · UIT Prayagraj · CarDekho Dataset</span></center>", unsafe_allow_html=True)
+st.markdown("<center><span style='color:#555;font-size:0.8rem;'>SmartCar AI · Summer Training Project · UGI Prayagraj · CarDekho Dataset</span></center>", unsafe_allow_html=True)
