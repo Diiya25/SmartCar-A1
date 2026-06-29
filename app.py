@@ -299,7 +299,13 @@ div[data-testid="stFormSubmitButton"] > button:hover {
     letter-spacing: 1.2px; text-transform: uppercase;
     border-radius: 999px; padding: 5px 14px; margin-bottom: 10px;
 }
-
+.car-price-tag{
+    font-family:'Bebas Neue',sans-serif !important;
+    font-size:22px;
+    color:#2563eb;
+    font-weight:700;
+    white-space:nowrap;
+}
 .car-body { padding: 18px 18px 20px; }
 .car-brand { font-size: 10px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 3px; }
 .car-name { font-family: 'Bebas Neue', sans-serif !important; font-size: 26px; color: #0f172a; line-height: 1.05; letter-spacing: 1px; margin-bottom: 4px; }
@@ -531,6 +537,25 @@ with tab1:
     <span class='empty-cta'>Analyse Vehicle</span></div>
 </div>""", unsafe_allow_html=True)
 
+def render_stars(rating):
+    rating = float(rating)
+
+    full = int(rating)
+    half = 1 if rating - full >= 0.5 else 0
+    empty = 5 - full - half
+
+    stars = ""
+
+    stars += "★" * full
+    stars += "☆" * empty
+
+    return f"""
+    <div style='display:flex;align-items:center;gap:6px;margin-bottom:8px;'>
+        <span style='color:#f59e0b;font-size:16px;'>{stars}</span>
+        <span style='font-size:13px;font-weight:600;color:#475569;'>{rating}</span>
+    </div>
+    """
+
 # ═══════════════════════════════════════════════════════
 # TAB 2 — CAR RECOMMENDER
 # ═══════════════════════════════════════════════════════
@@ -592,6 +617,14 @@ with tab2:
 
                 # ── stars ──
                 rating_html = render_stars(row.get("rating", ""))
+                return f"""
+<div class='car-rating-wrap'>
+    <div class='star-bar'>
+        {stars_html}
+    </div>
+    <span class='rating-num'>{val}</span>
+</div>
+"""
 
                 with col:
                     st.markdown(f"""
@@ -601,10 +634,11 @@ with tab2:
   </div>
   <div class="car-body">
     {top_badge}
-    <div class="car-brand">{row["brand"]}</div>
+    <div style="display:flex;justify-content:space-between;align-items:center;">
     <div class="car-name">{row["car_name"]}</div>
+    <div class="car-price-tag">{row["price"]}</div>
+</div>
     <div class="car-meta-row">
-      {price_html}
       {rating_html}
     </div>
     <div class="car-desc">{row["description"]}</div>
