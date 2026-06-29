@@ -25,7 +25,7 @@ def get_car_image(car_name: str):
 CSS = """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@700;800;900&display=swap');
-.stApp { background: #0A0A0A; color: #F0F0F0; font-family: 'Barlow', sans-serif; }
+.stApp { background: #FFFFFF; color: #111827; font-family: 'Barlow', sans-serif; }
 * { font-family: 'Barlow', sans-serif !important; }
 #MainMenu, footer, header { visibility: hidden; }
 .block-container { padding: 0rem 2.5rem 3rem 2.5rem; max-width: 1280px; }
@@ -33,7 +33,7 @@ CSS = """
     position: relative; width: 100%; min-height: 320px;
     background: radial-gradient(ellipse at 60% 50%, rgba(192,57,43,0.18) 0%, transparent 70%),
                 radial-gradient(ellipse at 20% 50%, rgba(192,57,43,0.08) 0%, transparent 60%),
-                linear-gradient(180deg, #0A0A0A 0%, #111111 100%);
+                linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 100%);
     border-bottom: 1px solid rgba(192,57,43,0.2);
     display: flex; align-items: center;
     padding: 2rem 2rem 1.5rem; overflow: hidden;
@@ -285,7 +285,7 @@ def load_and_train():
 def load_car_data():
     return pd.read_csv("car_recommendations.csv")
 
-hero_img = get_car_image("Toyota Fortuner")
+hero_img = "https://imgd.aeplcdn.com/664x374/n/cw/ec/44709/fortuner-exterior-right-front-three-quarter-2.jpeg?q=80"
 st.markdown(f"""
 <div class="hero">
   <div class="hero-left">
