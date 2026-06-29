@@ -617,14 +617,6 @@ with tab2:
 
                 # ── stars ──
                 rating_html = render_stars(row.get("rating", ""))
-                return f"""
-<div class='car-rating-wrap'>
-    <div class='star-bar'>
-        {stars_html}
-    </div>
-    <span class='rating-num'>{val}</span>
-</div>
-"""
 
                 with col:
                     st.markdown(f"""
@@ -638,9 +630,12 @@ with tab2:
     <div class="car-name">{row["car_name"]}</div>
     <div class="car-price-tag">{row["price"]}</div>
 </div>
-    <div class="car-meta-row">
-      {rating_html}
-    </div>
+  <div style="display:flex;justify-content:space-between;align-items:center;">
+    <div class="car-name">{row["car_name"]}</div>
+    <div class="car-price-tag">{row["price"]}</div>
+</div>
+
+{rating_html}
     <div class="car-desc">{row["description"]}</div>
     <div>
       <span class="{fuel_cls}">{fuel_icon} {row["fuel"].upper()}</span>
