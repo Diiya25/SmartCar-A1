@@ -580,35 +580,41 @@ with tab2:
         else:
             cols = st.columns(len(results))
             for idx, (col, (_, row)) in enumerate(zip(cols, results.iterrows())):
-                img_path     = get_car_image(row['car_name'])
-                fuel_key     = str(row['fuel']).lower()
-                fuel_cls     = f"badge-{fuel_key}" if fuel_key in ["petrol","diesel","electric"] else "badge"
-                fuel_icon    = {"petrol": "🔵", "diesel": "🔷", "electric": "🟢"}.get(fuel_key, "⛽")
-                top_badge    = "<div class='top-badge'>🏆 Top Recommendation</div>" if idx == 0 else ""
-                price_html   = f"<div class='car-price-tag'>{row['price']}</div>" if pd.notna(row.get('price','')) and str(row.get('price','')).strip() else ""
-                rating_html  = render_stars(row.get('rating', ''))
+                img_path  = get_car_image(row['car_name'])
+                fuel_key  = str(row['fuel']).lower()
+                fuel_cls  = f"badge-{fuel_key}" if fuel_key in ["petrol","diesel","electric"] else "badge"
+                fuel_icon = {"petrol": "🔵", "diesel": "🔷", "electric": "🟢"}.get(fuel_key, "⛽")
+                top_badge = "<div class=\'top-badge\'>🏆 Top Recommendation</div>" if idx == 0 else ""
 
-                card_body = f"""
-{top_badge}
-<div class='car-brand'>{row['brand']}</div>
-<div class='car-name'>{row['car_name']}</div>
-<div class='car-meta-row'>{price_html}{rating_html}</div>
-<div class='car-desc'>{row['description']}</div>
-<div>
-  <span class='{fuel_cls}'>{fuel_icon} {row['fuel'].upper()}</span>
-  <span class='badge'>{row['budget'].replace('_',' ')}</span>
-  <span class='badge'>{row['usage'].capitalize()}</span>
-  <span class='badge'>{row['priority'].capitalize()}</span>
-</div>"""
+                # ── price ──
+                price_val = str(row.get("price", "")).strip()
+                price_html = f"<div class=\'car-price-tag\'>{price_val}</div>" if price_val else ""
+
+                # ── stars ──
+                rating_html = render_stars(row.get("rating", ""))
 
                 with col:
-                    if os.path.exists(str(img_path)):
-                        st.image(img_path, use_container_width=True)
-                        st.markdown(f"<div class='car-card'><div class='car-body'>{card_body}</div></div>", unsafe_allow_html=True)
-                    else:
-                        st.markdown(f"""<div class='car-card'>
-<div class='car-img-container'><img src='{img_path}' alt='{row["car_name"]}'/></div>
-<div class='car-body'>{card_body}</div>
+                    st.markdown(f"""
+<div class="car-card">
+  <div class="car-img-container">
+    <img src="{img_path}" alt="{row['car_name']}" style="width:100%;height:185px;object-fit:cover;"/>
+  </div>
+  <div class="car-body">
+    {top_badge}
+    <div class="car-brand">{row["brand"]}</div>
+    <div class="car-name">{row["car_name"]}</div>
+    <div class="car-meta-row">
+      {price_html}
+      {rating_html}
+    </div>
+    <div class="car-desc">{row["description"]}</div>
+    <div>
+      <span class="{fuel_cls}">{fuel_icon} {row["fuel"].upper()}</span>
+      <span class="badge">{row["budget"].replace("_"," ")}</span>
+      <span class="badge">{row["usage"].capitalize()}</span>
+      <span class="badge">{row["priority"].capitalize()}</span>
+    </div>
+  </div>
 </div>""", unsafe_allow_html=True)
 
 st.markdown("<div class='divider' style='margin-top:2rem;'></div>", unsafe_allow_html=True)
