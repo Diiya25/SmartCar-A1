@@ -593,7 +593,7 @@ st.markdown(
 # ── DATA / MODEL ──────────────────────────────────────────────────────────────
 @st.cache_resource
 def load_and_train():
-    df = pd.read_csv("cardata.csv")
+    df = pd.read_csv("car_data.csv")
     car_keywords = "ritz,sx4,ciaz,wagon,swift,brezza,ertiga,dzire,alto,baleno,ignis,omni,fortuner,innova,corolla,etios,camry,land cruiser,i20,i10,grand,eon,xcent,creta,verna,elantra,city,brio,amaze,jazz"
     df = df[df["Car_Name"].str.lower().str.contains("|".join(car_keywords), na=False)]
     df = df.drop(["Car_Name", "Owner"], axis=1)
@@ -620,7 +620,7 @@ def load_and_train():
 
 @st.cache_data
 def load_car_data():
-    return pd.read_csv("carrecommendations.csv")
+    return pd.read_csv("car_recommendations.csv")
 
 tab1, tab2 = st.tabs(["Price Predictor", "Car Recommender"])
 
