@@ -538,24 +538,21 @@ with tab1:
 </div>""", unsafe_allow_html=True)
 
 def render_stars(rating):
-    rating = float(rating)
-
-    full = int(rating)
-    half = 1 if rating - full >= 0.5 else 0
-    empty = 5 - full - half
-
-    stars = ""
-
-    stars += "★" * full
-    stars += "☆" * empty
-
-    return f"""
-    <div style='display:flex;align-items:center;gap:6px;margin-bottom:8px;'>
-        <span style='color:#f59e0b;font-size:16px;'>{stars}</span>
-        <span style='font-size:13px;font-weight:600;color:#475569;'>{rating}</span>
-    </div>
-    """
-
+    try:
+        if pd.isna(rating):
+            return ""
+        rating = float(rating)
+        full = int(rating)
+        empty = 5 - full
+        stars = "★" * full + "☆" * empty
+        return f"""
+        <div style='display:flex;align-items:center;gap:6px;margin-bottom:8px;'>
+            <span style='color:#f59e0b;font-size:16px;'>{stars}</span>
+            <span style='font-size:13px;font-weight:600;color:#475569;'>{rating:.1f}</span>
+        </div>
+        """
+    except Exception:
+        return ""
 # ═══════════════════════════════════════════════════════
 # TAB 2 — CAR RECOMMENDER
 # ═══════════════════════════════════════════════════════
@@ -616,7 +613,7 @@ with tab2:
                 price_html = f"<div class=\'car-price-tag\'>{price_val}</div>" if price_val else ""
 
                 # ── stars ──
-                rating_html = render_stars(row.get("rating", ""))
+                rating_html = render_stars(row["rating"])
 
                 with col:
                     st.markdown(f"""
