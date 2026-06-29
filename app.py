@@ -27,7 +27,7 @@ CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap');
 
 /* ── BASE ── */
-.stApp { background: #050505; color: #F0F0F0; font-family: 'Inter', sans-serif; }
+.stApp { background: #E8F4FD; color: #0f172a; font-family: 'Inter', sans-serif; }
 * { font-family: 'Inter', sans-serif !important; }
 #MainMenu, footer, header { visibility: hidden; }
 .block-container { padding: 0 2.5rem 3rem; max-width: 1280px; }
@@ -36,399 +36,299 @@ CSS = """
 .hero {
     position: relative; width: 100%; min-height: 88vh;
     background:
-        radial-gradient(ellipse at 30% 50%, rgba(37,99,235,0.15) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 30%, rgba(6,182,212,0.10) 0%, transparent 50%),
-        linear-gradient(180deg, #050505 0%, #0a0a14 60%, #050505 100%);
+        radial-gradient(ellipse at 30% 50%, rgba(37,99,235,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 30%, rgba(6,182,212,0.08) 0%, transparent 50%),
+        linear-gradient(160deg, #dbeafe 0%, #e8f4fd 40%, #eff6ff 100%);
     display: flex; align-items: center;
     padding: 0 3rem;
     margin: 0 -2.5rem 0 -2.5rem;
     overflow: hidden;
+    border-bottom: 1.5px solid rgba(37,99,235,0.12);
 }
-
-/* animated grid floor */
 .hero::before {
     content: '';
     position: absolute; inset: 0;
     background-image:
-        linear-gradient(rgba(37,99,235,0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(37,99,235,0.07) 1px, transparent 1px);
+        linear-gradient(rgba(37,99,235,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,0.05) 1px, transparent 1px);
     background-size: 60px 60px;
-    mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.4) 40%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 40%, transparent 100%);
     pointer-events: none;
 }
-
-/* floating particles */
-.hero::after {
-    content: '';
-    position: absolute; inset: 0;
-    background-image:
-        radial-gradient(1.5px 1.5px at 20% 30%, rgba(6,182,212,0.6) 0%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 60% 20%, rgba(37,99,235,0.5) 0%, transparent 100%),
-        radial-gradient(1px 1px at 80% 60%, rgba(6,182,212,0.4) 0%, transparent 100%),
-        radial-gradient(1px 1px at 40% 70%, rgba(37,99,235,0.3) 0%, transparent 100%),
-        radial-gradient(1.5px 1.5px at 90% 40%, rgba(6,182,212,0.5) 0%, transparent 100%),
-        radial-gradient(1px 1px at 10% 80%, rgba(37,99,235,0.4) 0%, transparent 100%),
-        radial-gradient(1px 1px at 55% 85%, rgba(6,182,212,0.3) 0%, transparent 100%);
-    pointer-events: none;
-    animation: particleDrift 8s ease-in-out infinite alternate;
-}
-@keyframes particleDrift {
-    0%   { transform: translateY(0px); }
-    100% { transform: translateY(-20px); }
-}
-
 .hero-content { position: relative; z-index: 2; max-width: 680px; }
-
 .hero-eyebrow {
     display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(37,99,235,0.12);
-    border: 1px solid rgba(37,99,235,0.3);
-    color: #60A5FA; font-size: 11px; font-weight: 700;
+    background: rgba(37,99,235,0.1);
+    border: 1.5px solid rgba(37,99,235,0.25);
+    color: #1d4ed8; font-size: 11px; font-weight: 700;
     letter-spacing: 2.5px; text-transform: uppercase;
     border-radius: 999px; padding: 6px 18px; margin-bottom: 28px;
 }
 .hero-eyebrow-dot {
     width: 6px; height: 6px; border-radius: 50%;
-    background: #06B6D4;
+    background: #0ea5e9;
     animation: blink 2s ease-in-out infinite;
 }
-@keyframes blink {
-    0%,100% { opacity: 1; } 50% { opacity: 0.2; }
-}
-
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:0.2; } }
 .hero-title {
     font-family: 'Bebas Neue', sans-serif !important;
-    font-size: 80px; font-weight: 400; color: #FFFFFF;
-    letter-spacing: 3px; line-height: 0.92;
+    font-size: 86px; font-weight: 400; color: #0f172a;
+    letter-spacing: 3px; line-height: 0.88;
     text-transform: uppercase; margin-bottom: 0;
 }
-.hero-title .accent { color: #2563EB; }
-.hero-title .accent2 { color: #06B6D4; }
-
+.hero-title .accent  { color: #2563eb; }
+.hero-title .accent2 { color: #0ea5e9; }
 .hero-tagline {
-    color: #6B7280; font-size: 16px; font-weight: 400;
-    margin-top: 20px; line-height: 1.6; max-width: 520px;
-    letter-spacing: 0.2px;
+    color: #475569; font-size: 15px; font-weight: 400;
+    margin-top: 20px; line-height: 1.65; max-width: 520px;
 }
-
-/* ── HERO STATS ── */
-.hero-stats {
-    display: flex; gap: 32px; margin-top: 36px; flex-wrap: wrap;
-}
-.hero-stat {
-    display: flex; flex-direction: column; gap: 2px;
-}
+.hero-stats { display: flex; gap: 32px; margin-top: 36px; flex-wrap: wrap; }
+.hero-stat { display: flex; flex-direction: column; gap: 2px; }
 .hero-stat-num {
     font-family: 'Bebas Neue', sans-serif !important;
-    font-size: 36px; color: #FFFFFF; letter-spacing: 1px; line-height: 1;
+    font-size: 36px; color: #0f172a; letter-spacing: 1px; line-height: 1;
 }
-.hero-stat-num span { color: #2563EB; }
-.hero-stat-label {
-    font-size: 10px; font-weight: 700; color: #4B5563;
-    text-transform: uppercase; letter-spacing: 1.5px;
-}
-.hero-stat-divider {
-    width: 1px; background: rgba(255,255,255,0.08); align-self: stretch; margin: 4px 0;
-}
-
-.hero-cta {
-    margin-top: 36px; display: flex; gap: 14px; align-items: center;
-}
+.hero-stat-num span { color: #2563eb; }
+.hero-stat-label { font-size: 10px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1.5px; }
+.hero-stat-divider { width: 1px; background: rgba(37,99,235,0.2); align-self: stretch; margin: 4px 0; }
+.hero-cta { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
 .hero-badge {
-    background: rgba(6,182,212,0.1); border: 1px solid rgba(6,182,212,0.25);
-    color: #22D3EE; font-size: 11px; font-weight: 700;
+    background: #fff; border: 1.5px solid rgba(37,99,235,0.2);
+    color: #1d4ed8; font-size: 11px; font-weight: 700;
     letter-spacing: 1px; text-transform: uppercase;
     border-radius: 999px; padding: 6px 16px;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.08);
 }
-
-/* ── SCROLL INDICATOR ── */
 .scroll-hint {
     position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 8px;
-    color: #374151; font-size: 10px; font-weight: 700;
+    color: #94a3b8; font-size: 10px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase;
-    animation: bobUp 2s ease-in-out infinite;
-    z-index: 2;
+    animation: bobUp 2s ease-in-out infinite; z-index: 2;
 }
-@keyframes bobUp {
-    0%,100% { transform: translateX(-50%) translateY(0); }
-    50%      { transform: translateX(-50%) translateY(-8px); }
-}
+@keyframes bobUp { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(-8px); } }
 .scroll-arrow {
-    width: 24px; height: 24px;
-    border-right: 2px solid #374151;
-    border-bottom: 2px solid #374151;
+    width: 22px; height: 22px;
+    border-right: 2px solid #94a3b8; border-bottom: 2px solid #94a3b8;
     transform: rotate(45deg);
 }
 
 /* ── DIVIDER ── */
 .divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(37,99,235,0.5) 30%, rgba(6,182,212,0.4) 60%, transparent);
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent, rgba(37,99,235,0.3) 30%, rgba(14,165,233,0.3) 60%, transparent);
     border: none; margin: 2rem 0;
 }
 
 /* ── SECTION LABEL ── */
 .section-label {
     font-family: 'Bebas Neue', sans-serif !important;
-    font-size: 13px; letter-spacing: 4px;
-    color: #4B5563; margin-bottom: 18px;
-    display: flex; align-items: center; gap: 12px;
-    text-transform: uppercase;
+    font-size: 13px; letter-spacing: 4px; color: #94a3b8;
+    margin-bottom: 18px; display: flex; align-items: center; gap: 12px; text-transform: uppercase;
 }
 .section-label::before {
     content: ''; display: inline-block; width: 22px; height: 2px;
-    background: linear-gradient(90deg, #2563EB, #06B6D4);
+    background: linear-gradient(90deg, #2563eb, #0ea5e9);
     border-radius: 2px; flex-shrink: 0;
-}
-
-/* ── GLASSMORPHISM CARDS ── */
-.glass-card {
-    background: rgba(255,255,255,0.04);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 20px; padding: 22px;
-}
-.glass-card.glow {
-    border-color: rgba(37,99,235,0.3);
-    box-shadow: 0 0 32px rgba(37,99,235,0.12), inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
 /* ── METRIC CARDS ── */
 .metric-card {
-    background: rgba(255,255,255,0.03);
-    backdrop-filter: blur(20px);
-    border-radius: 18px; padding: 22px 20px;
-    border: 1px solid rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(16px);
+    border-radius: 18px; padding: 20px;
+    border: 1.5px solid rgba(37,99,235,0.1);
     text-align: center;
-    transition: border-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.06);
+    transition: box-shadow 0.25s, border-color 0.25s;
 }
-.metric-card:hover {
-    border-color: rgba(37,99,235,0.3);
-    box-shadow: 0 0 24px rgba(37,99,235,0.12);
-}
+.metric-card:hover { box-shadow: 0 8px 32px rgba(37,99,235,0.12); border-color: rgba(37,99,235,0.25); }
 .metric-card.hi {
-    border-color: rgba(6,182,212,0.3);
-    background: rgba(6,182,212,0.05);
-    box-shadow: 0 0 28px rgba(6,182,212,0.10);
+    border-color: rgba(14,165,233,0.35);
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(224,242,254,0.8));
+    box-shadow: 0 4px 24px rgba(14,165,233,0.15);
 }
-.mc-model { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: #4B5563; }
-.mc-label { font-size: 11px; color: #6B7280; margin-top: 3px; }
-.mc-val {
-    font-family: 'Bebas Neue', sans-serif !important;
-    font-size: 38px; color: #2563EB;
-    margin-top: 8px; line-height: 1; letter-spacing: 1px;
-}
-.metric-card.hi .mc-val { color: #06B6D4; }
+.mc-model { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #94a3b8; }
+.mc-label { font-size: 11px; color: #64748b; margin-top: 3px; }
+.mc-val { font-family: 'Bebas Neue', sans-serif !important; font-size: 38px; color: #2563eb; margin-top: 8px; line-height: 1; letter-spacing: 1px; }
+.metric-card.hi .mc-val { color: #0284c7; }
 
 /* ── FORM INPUTS ── */
 label, .stSlider label {
-    color: #4B5563 !important; font-size: 11px !important;
-    font-weight: 700 !important; text-transform: uppercase !important;
-    letter-spacing: 1px !important;
+    color: #64748b !important; font-size: 11px !important;
+    font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 1px !important;
 }
 .stTextInput > div > div > input,
 .stNumberInput > div > div > input {
-    background: rgba(255,255,255,0.05) !important; color: #F0F0F0 !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
+    background: rgba(255,255,255,0.85) !important; color: #0f172a !important;
+    border: 1.5px solid rgba(37,99,235,0.15) !important;
     border-radius: 10px !important; font-size: 15px !important; font-weight: 500 !important;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.05) !important;
 }
 .stSelectbox > div > div {
-    background: rgba(255,255,255,0.05) !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
-    border-radius: 10px !important; color: #F0F0F0 !important;
+    background: rgba(255,255,255,0.85) !important;
+    border: 1.5px solid rgba(37,99,235,0.15) !important;
+    border-radius: 10px !important; color: #0f172a !important;
     font-size: 15px !important; font-weight: 500 !important;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.05) !important;
 }
-.stSlider > div > div > div > div { background: #2563EB !important; }
+.stSlider > div > div > div > div { background: #2563eb !important; }
 
 /* ── HEALTH SCORE ── */
 .health-wrap {
-    background: rgba(6,182,212,0.06);
-    border: 1px solid rgba(6,182,212,0.2);
+    background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(224,242,254,0.7));
+    border: 1.5px solid rgba(14,165,233,0.25);
     border-radius: 16px; padding: 20px; margin-bottom: 16px;
+    box-shadow: 0 4px 20px rgba(14,165,233,0.1);
 }
-.health-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: #4B5563; margin-bottom: 4px; }
-.health-score {
-    font-family: 'Bebas Neue', sans-serif !important;
-    font-size: 48px; color: #06B6D4; line-height: 1; letter-spacing: 2px;
-}
-.health-bar-bg { background: rgba(255,255,255,0.08); border-radius: 999px; height: 6px; margin-top: 10px; overflow: hidden; }
-.health-bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #2563EB, #06B6D4); transition: width 1s ease; }
+.health-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: #94a3b8; margin-bottom: 4px; }
+.health-score { font-family: 'Bebas Neue', sans-serif !important; font-size: 52px; line-height: 1; letter-spacing: 2px; }
+.health-bar-bg { background: rgba(37,99,235,0.1); border-radius: 999px; height: 6px; margin-top: 10px; overflow: hidden; }
+.health-bar-fill { height: 100%; border-radius: 999px; transition: width 1s ease; }
 
 /* ── RESULT CARDS ── */
 .result-card {
-    background: rgba(255,255,255,0.04);
-    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(16px);
     border-radius: 16px; padding: 22px;
-    border: 1px solid rgba(255,255,255,0.08); margin-bottom: 14px;
+    border: 1.5px solid rgba(37,99,235,0.1); margin-bottom: 14px;
+    box-shadow: 0 4px 16px rgba(37,99,235,0.06);
 }
 .result-card.best {
-    border-color: rgba(6,182,212,0.35);
-    background: rgba(6,182,212,0.06);
-    box-shadow: 0 0 32px rgba(6,182,212,0.12);
+    border-color: rgba(14,165,233,0.4);
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(224,242,254,0.8));
+    box-shadow: 0 6px 32px rgba(14,165,233,0.15);
 }
-.rc-model { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: #4B5563; margin-bottom: 6px; }
-.rc-price {
-    font-family: 'Bebas Neue', sans-serif !important;
-    font-size: 44px; color: #2563EB; line-height: 1; letter-spacing: 1px;
-}
-.result-card.best .rc-price { color: #06B6D4; }
+.rc-model { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: #94a3b8; margin-bottom: 6px; }
+.rc-price { font-family: 'Bebas Neue', sans-serif !important; font-size: 44px; color: #2563eb; line-height: 1; letter-spacing: 1px; }
+.result-card.best .rc-price { color: #0284c7; }
 .rc-pill {
-    display: inline-block; background: linear-gradient(135deg, #2563EB, #06B6D4); color: #fff;
-    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
-    text-transform: uppercase; border-radius: 999px;
-    padding: 5px 14px; margin-top: 10px;
+    display: inline-block;
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; border-radius: 999px; padding: 5px 14px; margin-top: 10px;
 }
 
-/* ── WHY THIS PRICE ── */
+/* ── WHY CARD ── */
 .why-card {
-    background: rgba(37,99,235,0.06);
-    border: 1px solid rgba(37,99,235,0.2);
+    background: rgba(255,255,255,0.7);
+    border: 1.5px solid rgba(37,99,235,0.12);
     border-radius: 14px; padding: 18px 20px; margin-top: 14px;
+    box-shadow: 0 2px 12px rgba(37,99,235,0.05);
 }
-.why-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: #4B5563; margin-bottom: 12px; }
-.why-item { font-size: 13px; color: #9CA3AF; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.why-title { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: #94a3b8; margin-bottom: 12px; }
+.why-item { font-size: 13px; color: #475569; padding: 5px 0; border-bottom: 1px solid rgba(37,99,235,0.06); }
 .why-item:last-child { border-bottom: none; }
 
 /* ── EMPTY STATE ── */
 .empty-state {
-    background: rgba(255,255,255,0.02); border-radius: 18px;
-    padding: 56px 24px; border: 1px dashed rgba(255,255,255,0.08); text-align: center;
+    background: rgba(255,255,255,0.6); border-radius: 18px;
+    padding: 56px 24px; border: 1.5px dashed rgba(37,99,235,0.2); text-align: center;
 }
 .empty-icon { font-size: 44px; margin-bottom: 14px; }
-.empty-text { font-size: 14px; color: #4B5563; font-weight: 500; }
-.empty-cta { color: #2563EB; font-weight: 700; }
+.empty-text { font-size: 14px; color: #64748b; font-weight: 500; }
+.empty-cta { color: #2563eb; font-weight: 700; }
 
 /* ── TABS ── */
 .stTabs [data-baseweb="tab-list"] {
-    gap: 6px; background: rgba(255,255,255,0.03);
+    gap: 6px; background: rgba(255,255,255,0.6);
     border-radius: 14px; padding: 5px;
-    border: 1px solid rgba(255,255,255,0.07);
+    border: 1.5px solid rgba(37,99,235,0.12);
+    box-shadow: 0 2px 12px rgba(37,99,235,0.05);
 }
 .stTabs [data-baseweb="tab"] {
-    background: transparent; color: #4B5563; border-radius: 10px;
-    font-size: 14px; font-weight: 700; padding: 11px 28px; letter-spacing: 0.3px;
+    background: transparent; color: #64748b; border-radius: 10px;
+    font-size: 14px; font-weight: 700; padding: 11px 28px;
 }
 .stTabs [aria-selected="true"] {
-    background: linear-gradient(135deg, #2563EB, #0ea5e9) !important;
+    background: linear-gradient(135deg, #2563eb, #0ea5e9) !important;
     color: #fff !important;
-    box-shadow: 0 4px 20px rgba(37,99,235,0.35) !important;
+    box-shadow: 0 4px 16px rgba(37,99,235,0.3) !important;
 }
 
 /* ── BUTTON ── */
 div[data-testid="stFormSubmitButton"] { width: 100%; }
 div[data-testid="stFormSubmitButton"] > button {
-    background: linear-gradient(135deg, #2563EB 0%, #06B6D4 100%) !important;
+    background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%) !important;
     color: #fff !important; width: 100% !important; padding: 16px 24px !important;
     border-radius: 12px !important; border: none !important;
     font-family: 'Bebas Neue', sans-serif !important;
     font-weight: 400 !important; font-size: 20px !important;
     letter-spacing: 3px !important; text-transform: uppercase !important;
-    box-shadow: 0 4px 24px rgba(37,99,235,0.4) !important;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.35) !important;
     transition: all 0.25s !important; display: block !important;
 }
 div[data-testid="stFormSubmitButton"] > button:hover {
-    box-shadow: 0 8px 40px rgba(37,99,235,0.6) !important;
+    box-shadow: 0 8px 36px rgba(37,99,235,0.5) !important;
     transform: translateY(-2px) !important;
 }
 
 /* ── CAR CARDS ── */
-@keyframes fadeSlideUp {
-    from { opacity: 0; transform: translateY(28px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeSlideUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
 .car-card {
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.75);
     backdrop-filter: blur(20px);
-    border-radius: 22px; border: 1px solid rgba(255,255,255,0.08);
-    overflow: hidden; animation: fadeSlideUp 0.5s ease forwards;
+    border-radius: 22px; border: 1.5px solid rgba(37,99,235,0.1);
+    overflow: hidden; animation: fadeSlideUp 0.45s ease forwards;
+    box-shadow: 0 4px 24px rgba(37,99,235,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
 }
 .car-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 70px rgba(37,99,235,0.25), 0 0 40px rgba(6,182,212,0.15);
-    border-color: rgba(37,99,235,0.3);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 60px rgba(37,99,235,0.18), 0 0 0 1.5px rgba(14,165,233,0.3);
+    border-color: rgba(37,99,235,0.25);
 }
 .car-img-container {
     overflow: hidden; height: 185px;
-    background: linear-gradient(135deg, #0a0a14, #0f1420);
-    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #dbeafe, #e0f2fe);
     position: relative;
 }
 .car-img-container::after {
-    content: '';
-    position: absolute; bottom: 0; left: 0; right: 0; height: 60px;
-    background: linear-gradient(transparent, rgba(5,5,5,0.8));
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 50px;
+    background: linear-gradient(transparent, rgba(232,244,253,0.6));
     pointer-events: none;
 }
-.car-img-container img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 0.5s ease;
-    filter: brightness(0.92) saturate(1.1);
-}
-.car-img-container:hover img { transform: scale(1.07); }
+.car-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.car-img-container:hover img { transform: scale(1.06); }
 
+/* ── TOP BADGE ── */
 .top-badge {
     display: inline-block;
-    background: linear-gradient(135deg, #2563EB, #06B6D4);
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
     color: #fff; font-size: 10px; font-weight: 700;
     letter-spacing: 1.2px; text-transform: uppercase;
-    border-radius: 999px; padding: 5px 14px; margin-bottom: 12px;
+    border-radius: 999px; padding: 5px 14px; margin-bottom: 10px;
 }
-.car-body { padding: 18px 18px 20px; }
-.car-brand { font-size: 10px; font-weight: 700; color: #4B5563; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 3px; }
-.car-name {
-    font-family: 'Bebas Neue', sans-serif !important;
-    font-size: 26px; color: #FFFFFF;
-    line-height: 1.05; letter-spacing: 1px; margin-bottom: 6px;
-}
-.car-price {
-    font-family: 'Bebas Neue', sans-serif !important;
-    font-size: 20px; color: #2563EB;
-    letter-spacing: 0.5px; margin-bottom: 4px;
-}
-.car-rating { font-size: 13px; font-weight: 700; color: #F59E0B; margin-bottom: 8px; }
-.car-desc { font-size: 12px; color: #6B7280; line-height: 1.6; margin-bottom: 12px; }
 
-.badge {
-    display: inline-block; background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1); color: #6B7280;
-    border-radius: 999px; padding: 3px 10px;
-    font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
-    text-transform: uppercase; margin-right: 4px; margin-top: 4px;
+.car-body { padding: 18px 18px 20px; }
+.car-brand { font-size: 10px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 3px; }
+.car-name { font-family: 'Bebas Neue', sans-serif !important; font-size: 26px; color: #0f172a; line-height: 1.05; letter-spacing: 1px; margin-bottom: 4px; }
+
+/* ── PRICE + RATING ROW ── */
+.car-meta-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; flex-wrap: wrap; gap: 6px; }
+.car-price-tag {
+    font-family: 'Bebas Neue', sans-serif !important;
+    font-size: 24px; color: #2563eb; letter-spacing: 0.5px; line-height: 1;
 }
-.badge-petrol {
-    display: inline-block; background: rgba(37,99,235,0.12);
-    border: 1px solid rgba(37,99,235,0.3); color: #60A5FA;
-    border-radius: 999px; padding: 3px 10px;
-    font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
-    text-transform: uppercase; margin-right: 4px; margin-top: 4px;
-}
-.badge-diesel {
-    display: inline-block; background: rgba(6,182,212,0.12);
-    border: 1px solid rgba(6,182,212,0.3); color: #22D3EE;
-    border-radius: 999px; padding: 3px 10px;
-    font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
-    text-transform: uppercase; margin-right: 4px; margin-top: 4px;
-}
-.badge-electric {
-    display: inline-block; background: rgba(16,185,129,0.12);
-    border: 1px solid rgba(16,185,129,0.3); color: #34D399;
-    border-radius: 999px; padding: 3px 10px;
-    font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
-    text-transform: uppercase; margin-right: 4px; margin-top: 4px;
-}
-.no-result {
-    text-align: center; padding: 52px 24px;
-    border: 1px dashed rgba(255,255,255,0.08); border-radius: 18px;
-    color: #4B5563; font-size: 14px; font-weight: 500;
-}
-.stAlert { border-radius: 12px !important; font-weight: 500 !important; }
-.footer {
-    text-align: center; color: #1F2937; font-size: 11px;
-    font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 24px 0 8px;
-}
+.car-rating-wrap { display: flex; align-items: center; gap: 6px; }
+.star-bar { display: flex; gap: 2px; }
+.star { font-size: 13px; }
+.star.full  { color: #f59e0b; }
+.star.half  { color: #fbbf24; }
+.star.empty { color: #cbd5e1; }
+.rating-num { font-size: 13px; font-weight: 700; color: #475569; }
+
+.car-desc { font-size: 12px; color: #64748b; line-height: 1.6; margin-bottom: 12px; }
+
+/* ── BADGES ── */
+.badge { display:inline-block; background:rgba(37,99,235,0.07); border:1px solid rgba(37,99,235,0.15); color:#3b82f6; border-radius:999px; padding:3px 10px; font-size:10px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; margin-right:4px; margin-top:4px; }
+.badge-petrol  { display:inline-block; background:rgba(37,99,235,0.08); border:1px solid rgba(37,99,235,0.25); color:#1d4ed8; border-radius:999px; padding:3px 10px; font-size:10px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; margin-right:4px; margin-top:4px; }
+.badge-diesel  { display:inline-block; background:rgba(14,165,233,0.08); border:1px solid rgba(14,165,233,0.25); color:#0284c7; border-radius:999px; padding:3px 10px; font-size:10px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; margin-right:4px; margin-top:4px; }
+.badge-electric{ display:inline-block; background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.25); color:#059669; border-radius:999px; padding:3px 10px; font-size:10px; font-weight:700; letter-spacing:0.5px; text-transform:uppercase; margin-right:4px; margin-top:4px; }
+
+.no-result { text-align:center; padding:52px 24px; border:1.5px dashed rgba(37,99,235,0.2); border-radius:18px; color:#94a3b8; font-size:14px; font-weight:500; background:rgba(255,255,255,0.5); }
+.stAlert { border-radius:12px !important; font-weight:500 !important; }
+.footer { text-align:center; color:#94a3b8; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:24px 0 8px; }
 </style>
 """
 
@@ -467,7 +367,7 @@ st.markdown("""
       </div>
       <div class="hero-stat-divider"></div>
       <div class="hero-stat">
-        <div class="hero-stat-num">57</div>
+        <div class="hero-stat-num">101</div>
         <div class="hero-stat-label">Recommendations</div>
       </div>
     </div>
@@ -513,6 +413,20 @@ def load_and_train():
 @st.cache_data
 def load_car_data():
     return pd.read_csv("car_recommendations.csv")
+
+def render_stars(rating_val):
+    try:
+        val = float(rating_val)
+        full  = int(val)
+        half  = 1 if (val - full) >= 0.5 else 0
+        empty = 5 - full - half
+        stars_html = ""
+        for _ in range(full):  stars_html += "<span class='star full'>★</span>"
+        if half:               stars_html += "<span class='star half'>★</span>"
+        for _ in range(empty): stars_html += "<span class='star empty'>★</span>"
+        return f"<div class='car-rating-wrap'><div class='star-bar'>{stars_html}</div><span class='rating-num'>{val}</span></div>"
+    except:
+        return ""
 
 # ── TABS ──────────────────────────────────────────────────────────────────────
 st.markdown("<div class='divider'></div>", unsafe_allow_html=True)
@@ -561,10 +475,8 @@ with tab1:
     with right:
         st.markdown("<div class='section-label'>Predicted Price</div>", unsafe_allow_html=True)
         if submitted:
-            # ── SCANNING ANIMATION ──
             with st.spinner("🤖 AI scanning vehicle data..."):
                 time.sleep(1.5)
-
             fuel_map   = {"Petrol": 0, "Diesel": 1, "CNG": 2}
             seller_map = {"Dealer": 0, "Individual": 1}
             trans_map  = {"Manual": 0, "Automatic": 1}
@@ -573,33 +485,30 @@ with tab1:
             lr_pred = max(0, lr_model.predict(inp)[0])
             rf_pred = max(0, rf_model.predict(inp)[0])
 
-            # ── VEHICLE HEALTH SCORE ──
             health_score = min(99, max(55, int(100 - (kms_driven / 8000) - (2024 - year) * 1.5)))
-            health_color = "#06B6D4" if health_score >= 80 else "#F59E0B" if health_score >= 60 else "#EF4444"
-            st.markdown(f"""
-<div class='health-wrap'>
+            health_color = "#0284c7" if health_score >= 80 else "#f59e0b" if health_score >= 60 else "#ef4444"
+            bar_gradient = f"linear-gradient(90deg, #2563eb, {health_color})"
+
+            st.markdown(f"""<div class='health-wrap'>
   <div class='health-label'>Vehicle Health Score</div>
-  <div class='health-score' style='color:{health_color};'>{health_score}<span style='font-size:22px;'>%</span></div>
+  <div class='health-score' style='color:{health_color};'>{health_score}<span style='font-size:22px;font-family:Inter,sans-serif;'>%</span></div>
   <div class='health-bar-bg'>
-    <div class='health-bar-fill' style='width:{health_score}%; background: linear-gradient(90deg, #2563EB, {health_color});'></div>
+    <div class='health-bar-fill' style='width:{health_score}%; background:{bar_gradient};'></div>
   </div>
 </div>""", unsafe_allow_html=True)
 
-            # ── PRICE RESULTS ──
             st.markdown(f"""<div class='result-card'>
   <div class='rc-model'>Linear Regression</div>
-  <div class='rc-price'>₹ {lr_pred:.2f} <span style='font-size:17px;font-weight:600;font-family:Inter,sans-serif;'>Lakh</span></div>
+  <div class='rc-price'>₹ {lr_pred:.2f} <span style='font-size:16px;font-weight:600;font-family:Inter,sans-serif;'>Lakh</span></div>
 </div>""", unsafe_allow_html=True)
-
             st.markdown(f"""<div class='result-card best'>
   <div class='rc-model'>Random Forest</div>
-  <div class='rc-price'>₹ {rf_pred:.2f} <span style='font-size:17px;font-weight:600;font-family:Inter,sans-serif;'>Lakh</span></div>
+  <div class='rc-price'>₹ {rf_pred:.2f} <span style='font-size:16px;font-weight:600;font-family:Inter,sans-serif;'>Lakh</span></div>
   <div class='rc-pill'>✦ Most Accurate</div>
 </div>""", unsafe_allow_html=True)
 
-            # ── WHY THIS PRICE ──
             reasons = []
-            if kms_driven < 30000:  reasons.append("✅ Very low mileage — high resale value")
+            if kms_driven < 30000:   reasons.append("✅ Very low mileage — high resale value")
             elif kms_driven < 60000: reasons.append("✅ Low mileage increases value")
             else:                    reasons.append("⚠️ High mileage reduces value")
             if year >= 2020:         reasons.append("✅ Recent model year — premium pricing")
@@ -614,15 +523,12 @@ with tab1:
   <div class='why-title'>Why This Price?</div>
   {reasons_html}
 </div>""", unsafe_allow_html=True)
-
-            diff = abs(rf_pred - lr_pred)
-            st.info(f"Models differ by ₹{diff:.2f}L · Best R² = {max(lr_r2, rf_r2):.3f}")
+            st.info(f"Models differ by ₹{abs(rf_pred - lr_pred):.2f}L · Best R² = {max(lr_r2, rf_r2):.3f}")
         else:
             st.markdown("""<div class='empty-state'>
   <div class='empty-icon'>🔮</div>
   <div class='empty-text'>Fill in car details and hit<br>
-    <span class='empty-cta'>Analyse Vehicle</span>
-  </div>
+    <span class='empty-cta'>Analyse Vehicle</span></div>
 </div>""", unsafe_allow_html=True)
 
 # ═══════════════════════════════════════════════════════
@@ -674,53 +580,36 @@ with tab2:
         else:
             cols = st.columns(len(results))
             for idx, (col, (_, row)) in enumerate(zip(cols, results.iterrows())):
-                img_path = get_car_image(row['car_name'])
-                fuel_key = str(row['fuel']).lower()
-                fuel_badge_class = f"badge-{fuel_key}" if fuel_key in ["petrol","diesel","electric"] else "badge"
-                fuel_icon = {"petrol": "🔵", "diesel": "🔷", "electric": "🟢"}.get(fuel_key, "⛽")
-                try:
-                    rating_val = float(row['rating'])
-                    full = int(rating_val)
-                    half = 1 if (rating_val - full) >= 0.5 else 0
-                    stars = "★" * full + ("½" if half else "") + "☆" * (5 - full - half)
-                    rating_display = f"{stars} {rating_val}"
-                except:
-                    rating_display = str(row.get('rating', ''))
-                price_display = str(row.get('price', '')) if 'price' in row else ''
-                top_badge = "<div class='top-badge'>🏆 Top Recommendation</div>" if idx == 0 else ""
+                img_path     = get_car_image(row['car_name'])
+                fuel_key     = str(row['fuel']).lower()
+                fuel_cls     = f"badge-{fuel_key}" if fuel_key in ["petrol","diesel","electric"] else "badge"
+                fuel_icon    = {"petrol": "🔵", "diesel": "🔷", "electric": "🟢"}.get(fuel_key, "⛽")
+                top_badge    = "<div class='top-badge'>🏆 Top Recommendation</div>" if idx == 0 else ""
+                price_html   = f"<div class='car-price-tag'>{row['price']}</div>" if pd.notna(row.get('price','')) and str(row.get('price','')).strip() else ""
+                rating_html  = render_stars(row.get('rating', ''))
+
+                card_body = f"""
+{top_badge}
+<div class='car-brand'>{row['brand']}</div>
+<div class='car-name'>{row['car_name']}</div>
+<div class='car-meta-row'>{price_html}{rating_html}</div>
+<div class='car-desc'>{row['description']}</div>
+<div>
+  <span class='{fuel_cls}'>{fuel_icon} {row['fuel'].upper()}</span>
+  <span class='badge'>{row['budget'].replace('_',' ')}</span>
+  <span class='badge'>{row['usage'].capitalize()}</span>
+  <span class='badge'>{row['priority'].capitalize()}</span>
+</div>"""
 
                 with col:
                     if os.path.exists(str(img_path)):
                         st.image(img_path, use_container_width=True)
-                        st.markdown(f"""<div class='car-card'><div class='car-body'>
-{top_badge}
-<div class='car-brand'>{row['brand']}</div>
-<div class='car-name'>{row['car_name']}</div>
-<div class='car-price'>{price_display}</div>
-<div class='car-rating'>{rating_display}</div>
-<div class='car-desc'>{row['description']}</div>
-<div>
-  <span class='{fuel_badge_class}'>{fuel_icon} {row['fuel'].upper()}</span>
-  <span class='badge'>{row['budget'].replace('_',' ')}</span>
-  <span class='badge'>{row['usage'].capitalize()}</span>
-  <span class='badge'>{row['priority'].capitalize()}</span>
-</div></div></div>""", unsafe_allow_html=True)
+                        st.markdown(f"<div class='car-card'><div class='car-body'>{card_body}</div></div>", unsafe_allow_html=True)
                     else:
                         st.markdown(f"""<div class='car-card'>
 <div class='car-img-container'><img src='{img_path}' alt='{row["car_name"]}'/></div>
-<div class='car-body'>
-{top_badge}
-<div class='car-brand'>{row['brand']}</div>
-<div class='car-name'>{row['car_name']}</div>
-<div class='car-price'>{price_display}</div>
-<div class='car-rating'>{rating_display}</div>
-<div class='car-desc'>{row['description']}</div>
-<div>
-  <span class='{fuel_badge_class}'>{fuel_icon} {row['fuel'].upper()}</span>
-  <span class='badge'>{row['budget'].replace('_',' ')}</span>
-  <span class='badge'>{row['usage'].capitalize()}</span>
-  <span class='badge'>{row['priority'].capitalize()}</span>
-</div></div></div>""", unsafe_allow_html=True)
+<div class='car-body'>{card_body}</div>
+</div>""", unsafe_allow_html=True)
 
 st.markdown("<div class='divider' style='margin-top:2rem;'></div>", unsafe_allow_html=True)
 st.markdown("<div class='footer'>SmartCar AI &nbsp;·&nbsp; CarDekho Dataset &nbsp;·&nbsp; Linear Regression + Random Forest</div>", unsafe_allow_html=True)
