@@ -8,7 +8,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import r2_score, mean_absolute_error
-from car_3d_component import render_3d_car
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -489,17 +488,6 @@ st.markdown("""
   </div>
 </div>
 """, unsafe_allow_html=True)
-
-
-# ── HERO ──────────────────────────────────────────────────────────────────────
-st.markdown("""
-<div class="hero">
-  ...all your existing hero html...
-</div>
-""", unsafe_allow_html=True)
-
-from car_3d_component import render_3d_car
-render_3d_car("chevrolet_corvette_c5_blue.glb", height=460)
 
 # ── ML TRAINING ───────────────────────────────────────────────────────────────
 @st.cache_resource
