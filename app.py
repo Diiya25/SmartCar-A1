@@ -499,7 +499,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 from car_3d_component import render_3d_car
-render_3d_car("assets/chevrolet_corvette_c5_blue.glb", height=460)
+render_3d_car("chevrolet_corvette_c5_blue.glb", height=460)
 
 # ── ML TRAINING ───────────────────────────────────────────────────────────────
 @st.cache_resource
