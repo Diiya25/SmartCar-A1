@@ -27,7 +27,7 @@ CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bebas+Neue&display=swap');
 
 /* ── BASE ── */
-.stApp { background: #050505; color: #F0F0F0; font-family: 'Inter', sans-serif; }
+.stApp { background: #E8F4FD; color: #0f172a; font-family: 'Inter', sans-serif; }
 * { font-family: 'Inter', sans-serif !important; }
 #MainMenu, footer, header { visibility: hidden; }
 .block-container { padding: 0 2.5rem 3rem; max-width: 1280px; }
@@ -36,9 +36,9 @@ CSS = """
 .hero {
     position: relative; width: 100%; min-height: 88vh;
     background:
-        radial-gradient(ellipse at 30% 50%, rgba(37,99,235,0.15) 0%, transparent 60%),
-        radial-gradient(ellipse at 80% 30%, rgba(6,182,212,0.10) 0%, transparent 50%),
-        linear-gradient(180deg, #050505 0%, #0a0a14 60%, #050505 100%);
+        radial-gradient(ellipse at 30% 50%, rgba(37,99,235,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 30%, rgba(6,182,212,0.08) 0%, transparent 50%),
+        linear-gradient(160deg, #dbeafe 0%, #e8f4fd 40%, #eff6ff 100%);
     display: flex; align-items: center;
     padding: 0 3rem;
     margin: 0 -2.5rem 0 -2.5rem;
@@ -50,10 +50,10 @@ CSS = """
     content: '';
     position: absolute; inset: 0;
     background-image:
-        linear-gradient(rgba(37,99,235,0.07) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(37,99,235,0.07) 1px, transparent 1px);
+        linear-gradient(rgba(37,99,235,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37,99,235,0.05) 1px, transparent 1px);
     background-size: 60px 60px;
-    mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.4) 40%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.25) 40%, transparent 100%);
     pointer-events: none;
 }
 
@@ -98,7 +98,7 @@ CSS = """
 
 .hero-title {
     font-family: 'Bebas Neue', sans-serif !important;
-    font-size: 80px; font-weight: 400; color: #FFFFFF;
+    font-size: 80px; font-weight: 400; color: #0f172a;
     letter-spacing: 3px; line-height: 0.92;
     text-transform: uppercase; margin-bottom: 0;
 }
@@ -106,7 +106,7 @@ CSS = """
 .hero-title .accent2 { color: #06B6D4; }
 
 .hero-tagline {
-    color: #6B7280; font-size: 16px; font-weight: 400;
+    color: #475569; font-size: 16px; font-weight: 400;
     margin-top: 20px; line-height: 1.6; max-width: 520px;
     letter-spacing: 0.2px;
 }
@@ -120,23 +120,23 @@ CSS = """
 }
 .hero-stat-num {
     font-family: 'Bebas Neue', sans-serif !important;
-    font-size: 36px; color: #FFFFFF; letter-spacing: 1px; line-height: 1;
+    font-size: 36px; color: #0f172a; letter-spacing: 1px; line-height: 1;
 }
 .hero-stat-num span { color: #2563EB; }
 .hero-stat-label {
-    font-size: 10px; font-weight: 700; color: #4B5563;
+    font-size: 10px; font-weight: 700; color: #94a3b8;
     text-transform: uppercase; letter-spacing: 1.5px;
 }
 .hero-stat-divider {
-    width: 1px; background: rgba(255,255,255,0.08); align-self: stretch; margin: 4px 0;
+    width: 1px; background: rgba(37,99,235,0.2); align-self: stretch; margin: 4px 0;
 }
 
 .hero-cta {
     margin-top: 36px; display: flex; gap: 14px; align-items: center;
 }
 .hero-badge {
-    background: rgba(6,182,212,0.1); border: 1px solid rgba(6,182,212,0.25);
-    color: #22D3EE; font-size: 11px; font-weight: 700;
+    background: #fff; border: 1.5px solid rgba(37,99,235,0.2);
+    color: #1d4ed8; font-size: 11px; font-weight: 700;
     letter-spacing: 1px; text-transform: uppercase;
     border-radius: 999px; padding: 6px 16px;
 }
@@ -145,7 +145,7 @@ CSS = """
 .scroll-hint {
     position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
     display: flex; flex-direction: column; align-items: center; gap: 8px;
-    color: #374151; font-size: 10px; font-weight: 700;
+    color: #94a3b8; font-size: 10px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase;
     animation: bobUp 2s ease-in-out infinite;
     z-index: 2;
@@ -156,8 +156,8 @@ CSS = """
 }
 .scroll-arrow {
     width: 24px; height: 24px;
-    border-right: 2px solid #374151;
-    border-bottom: 2px solid #374151;
+    border-right: 2px solid #94a3b8;
+    border-bottom: 2px solid #94a3b8;
     transform: rotate(45deg);
 }
 
@@ -172,7 +172,7 @@ CSS = """
 .section-label {
     font-family: 'Bebas Neue', sans-serif !important;
     font-size: 13px; letter-spacing: 4px;
-    color: #4B5563; margin-bottom: 18px;
+    color: #94a3b8; margin-bottom: 18px;
     display: flex; align-items: center; gap: 12px;
     text-transform: uppercase;
 }
@@ -184,10 +184,10 @@ CSS = """
 
 /* ── GLASSMORPHISM CARDS ── */
 .glass-card {
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.7);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1.5px solid rgba(37,99,235,0.12);
     border-radius: 20px; padding: 22px;
 }
 .glass-card.glow {
@@ -197,11 +197,12 @@ CSS = """
 
 /* ── METRIC CARDS ── */
 .metric-card {
-    background: rgba(255,255,255,0.03);
+    background: rgba(255,255,255,0.7);
     backdrop-filter: blur(20px);
     border-radius: 18px; padding: 22px 20px;
-    border: 1px solid rgba(255,255,255,0.07);
+    border: 1.5px solid rgba(37,99,235,0.12);
     text-align: center;
+    box-shadow: 0 4px 20px rgba(37,99,235,0.06);
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 .metric-card:hover {
@@ -213,8 +214,8 @@ CSS = """
     background: rgba(6,182,212,0.05);
     box-shadow: 0 0 28px rgba(6,182,212,0.10);
 }
-.mc-model { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: #4B5563; }
-.mc-label { font-size: 11px; color: #6B7280; margin-top: 3px; }
+.mc-model { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: #94a3b8; }
+.mc-label { font-size: 11px; color: #64748b; margin-top: 3px; }
 .mc-val {
     font-family: 'Bebas Neue', sans-serif !important;
     font-size: 38px; color: #2563EB;
@@ -224,20 +225,20 @@ CSS = """
 
 /* ── FORM INPUTS ── */
 label, .stSlider label {
-    color: #4B5563 !important; font-size: 11px !important;
+    color: #64748b !important; font-size: 11px !important;
     font-weight: 700 !important; text-transform: uppercase !important;
     letter-spacing: 1px !important;
 }
 .stTextInput > div > div > input,
 .stNumberInput > div > div > input {
-    background: rgba(255,255,255,0.05) !important; color: #F0F0F0 !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
+    background: rgba(255,255,255,0.85) !important; color: #0f172a !important;
+    border: 1.5px solid rgba(37,99,235,0.15) !important;
     border-radius: 10px !important; font-size: 15px !important; font-weight: 500 !important;
 }
 .stSelectbox > div > div {
-    background: rgba(255,255,255,0.05) !important;
-    border: 1px solid rgba(255,255,255,0.1) !important;
-    border-radius: 10px !important; color: #F0F0F0 !important;
+    background: rgba(255,255,255,0.85) !important;
+    border: 1.5px solid rgba(37,99,235,0.15) !important;
+    border-radius: 10px !important; color: #0f172a !important;
     font-size: 15px !important; font-weight: 500 !important;
 }
 .stSlider > div > div > div > div { background: #2563EB !important; }
@@ -248,27 +249,28 @@ label, .stSlider label {
     border: 1px solid rgba(6,182,212,0.2);
     border-radius: 16px; padding: 20px; margin-bottom: 16px;
 }
-.health-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: #4B5563; margin-bottom: 4px; }
+.health-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: #94a3b8; margin-bottom: 4px; }
 .health-score {
     font-family: 'Bebas Neue', sans-serif !important;
     font-size: 48px; color: #06B6D4; line-height: 1; letter-spacing: 2px;
 }
-.health-bar-bg { background: rgba(255,255,255,0.08); border-radius: 999px; height: 6px; margin-top: 10px; overflow: hidden; }
+.health-bar-bg { background: rgba(37,99,235,0.1); border-radius: 999px; height: 6px; margin-top: 10px; overflow: hidden; }
 .health-bar-fill { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #2563EB, #06B6D4); transition: width 1s ease; }
 
 /* ── RESULT CARDS ── */
 .result-card {
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.75);
     backdrop-filter: blur(20px);
     border-radius: 16px; padding: 22px;
-    border: 1px solid rgba(255,255,255,0.08); margin-bottom: 14px;
+    border: 1.5px solid rgba(37,99,235,0.12); margin-bottom: 14px;
+    box-shadow: 0 4px 16px rgba(37,99,235,0.06);
 }
 .result-card.best {
     border-color: rgba(6,182,212,0.35);
     background: rgba(6,182,212,0.06);
     box-shadow: 0 0 32px rgba(6,182,212,0.12);
 }
-.rc-model { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: #4B5563; margin-bottom: 6px; }
+.rc-model { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: #94a3b8; margin-bottom: 6px; }
 .rc-price {
     font-family: 'Bebas Neue', sans-serif !important;
     font-size: 44px; color: #2563EB; line-height: 1; letter-spacing: 1px;
@@ -287,27 +289,28 @@ label, .stSlider label {
     border: 1px solid rgba(37,99,235,0.2);
     border-radius: 14px; padding: 18px 20px; margin-top: 14px;
 }
-.why-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: #4B5563; margin-bottom: 12px; }
-.why-item { font-size: 13px; color: #9CA3AF; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.why-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: #94a3b8; margin-bottom: 12px; }
+.why-item { font-size: 13px; color: #475569; padding: 5px 0; border-bottom: 1px solid rgba(37,99,235,0.06); }
 .why-item:last-child { border-bottom: none; }
 
 /* ── EMPTY STATE ── */
 .empty-state {
-    background: rgba(255,255,255,0.02); border-radius: 18px;
-    padding: 56px 24px; border: 1px dashed rgba(255,255,255,0.08); text-align: center;
+    background: rgba(255,255,255,0.6); border-radius: 18px;
+    padding: 56px 24px; border: 1.5px dashed rgba(37,99,235,0.2); text-align: center;
 }
 .empty-icon { font-size: 44px; margin-bottom: 14px; }
-.empty-text { font-size: 14px; color: #4B5563; font-weight: 500; }
+.empty-text { font-size: 14px; color: #64748b; font-weight: 500; }
 .empty-cta { color: #2563EB; font-weight: 700; }
 
 /* ── TABS ── */
 .stTabs [data-baseweb="tab-list"] {
-    gap: 6px; background: rgba(255,255,255,0.03);
+    gap: 6px; background: rgba(255,255,255,0.6);
     border-radius: 14px; padding: 5px;
-    border: 1px solid rgba(255,255,255,0.07);
+    border: 1.5px solid rgba(37,99,235,0.12);
+    box-shadow: 0 2px 12px rgba(37,99,235,0.05);
 }
 .stTabs [data-baseweb="tab"] {
-    background: transparent; color: #4B5563; border-radius: 10px;
+    background: transparent; color: #64748b; border-radius: 10px;
     font-size: 14px; font-weight: 700; padding: 11px 28px; letter-spacing: 0.3px;
 }
 .stTabs [aria-selected="true"] {
@@ -339,10 +342,11 @@ div[data-testid="stFormSubmitButton"] > button:hover {
     to   { opacity: 1; transform: translateY(0); }
 }
 .car-card {
-    background: rgba(255,255,255,0.04);
+    background: rgba(255,255,255,0.75);
     backdrop-filter: blur(20px);
-    border-radius: 22px; border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 22px; border: 1.5px solid rgba(37,99,235,0.12);
     overflow: hidden; animation: fadeSlideUp 0.5s ease forwards;
+    box-shadow: 0 4px 24px rgba(37,99,235,0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
 }
 .car-card:hover {
@@ -352,7 +356,7 @@ div[data-testid="stFormSubmitButton"] > button:hover {
 }
 .car-img-container {
     overflow: hidden; height: 185px;
-    background: linear-gradient(135deg, #0a0a14, #0f1420);
+    background: linear-gradient(135deg, #dbeafe, #e0f2fe);
     display: flex; align-items: center; justify-content: center;
     position: relative;
 }
@@ -377,10 +381,10 @@ div[data-testid="stFormSubmitButton"] > button:hover {
     border-radius: 999px; padding: 5px 14px; margin-bottom: 12px;
 }
 .car-body { padding: 18px 18px 20px; }
-.car-brand { font-size: 10px; font-weight: 700; color: #4B5563; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 3px; }
+.car-brand { font-size: 10px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 3px; }
 .car-name {
     font-family: 'Bebas Neue', sans-serif !important;
-    font-size: 26px; color: #FFFFFF;
+    font-size: 26px; color: #0f172a;
     line-height: 1.05; letter-spacing: 1px; margin-bottom: 6px;
 }
 .car-price {
@@ -389,44 +393,45 @@ div[data-testid="stFormSubmitButton"] > button:hover {
     letter-spacing: 0.5px; margin-bottom: 4px;
 }
 .car-rating { font-size: 13px; font-weight: 700; color: #F59E0B; margin-bottom: 8px; }
-.car-desc { font-size: 12px; color: #6B7280; line-height: 1.6; margin-bottom: 12px; }
+.car-desc { font-size: 12px; color: #64748b; line-height: 1.6; margin-bottom: 12px; }
 
 .badge {
-    display: inline-block; background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1); color: #6B7280;
+    display: inline-block; background: rgba(37,99,235,0.07);
+    border: 1px solid rgba(37,99,235,0.15); color: #3b82f6;
     border-radius: 999px; padding: 3px 10px;
     font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
     text-transform: uppercase; margin-right: 4px; margin-top: 4px;
 }
 .badge-petrol {
-    display: inline-block; background: rgba(37,99,235,0.12);
-    border: 1px solid rgba(37,99,235,0.3); color: #60A5FA;
+    display: inline-block; background: rgba(37,99,235,0.1);
+    border: 1px solid rgba(37,99,235,0.3); color: #1d4ed8;
     border-radius: 999px; padding: 3px 10px;
     font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
     text-transform: uppercase; margin-right: 4px; margin-top: 4px;
 }
 .badge-diesel {
-    display: inline-block; background: rgba(6,182,212,0.12);
-    border: 1px solid rgba(6,182,212,0.3); color: #22D3EE;
+    display: inline-block; background: rgba(6,182,212,0.1);
+    border: 1px solid rgba(6,182,212,0.3); color: #0284c7;
     border-radius: 999px; padding: 3px 10px;
     font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
     text-transform: uppercase; margin-right: 4px; margin-top: 4px;
 }
 .badge-electric {
-    display: inline-block; background: rgba(16,185,129,0.12);
-    border: 1px solid rgba(16,185,129,0.3); color: #34D399;
+    display: inline-block; background: rgba(16,185,129,0.1);
+    border: 1px solid rgba(16,185,129,0.3); color: #059669;
     border-radius: 999px; padding: 3px 10px;
     font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
     text-transform: uppercase; margin-right: 4px; margin-top: 4px;
 }
 .no-result {
     text-align: center; padding: 52px 24px;
-    border: 1px dashed rgba(255,255,255,0.08); border-radius: 18px;
-    color: #4B5563; font-size: 14px; font-weight: 500;
+    border: 1.5px dashed rgba(37,99,235,0.2); border-radius: 18px;
+    background: rgba(255,255,255,0.5);
+    color: #94a3b8; font-size: 14px; font-weight: 500;
 }
 .stAlert { border-radius: 12px !important; font-weight: 500 !important; }
 .footer {
-    text-align: center; color: #1F2937; font-size: 11px;
+    text-align: center; color: #94a3b8; font-size: 11px;
     font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 24px 0 8px;
 }
 </style>
