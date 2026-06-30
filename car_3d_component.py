@@ -29,7 +29,7 @@ def render_3d_car(glb_filename: str = "chevrolet_corvette_c5_blue.glb", height: 
     base64-inline-HTML approach which can get truncated by hosting proxies on large files.
     """
 
-    model_url = f"./app/static/{glb_filename}"
+    model_path = f"/app/static/{glb_filename}"
 
     html_code = f"""
     <div id="car-canvas-container" style="width:100%; height:{height}px; position:relative; overflow:hidden;
@@ -51,6 +51,14 @@ def render_3d_car(glb_filename: str = "chevrolet_corvette_c5_blue.glb", height: 
                 document.getElementById('loader').innerText = 'Failed to load 3D library (check internet/CDN access)';
                 return;
             }}
+
+            var parentOrigin = '';
+            try {{
+                parentOrigin = window.parent.location.origin;
+            }} catch (e) {{
+                parentOrigin = window.location.origin;
+            }}
+            var modelUrl = parentOrigin + "{model_path}";
 
             var container = document.getElementById('car-canvas-container');
             var width = container.clientWidth;
@@ -101,7 +109,7 @@ def render_3d_car(glb_filename: str = "chevrolet_corvette_c5_blue.glb", height: 
 
             var loader = new THREE.GLTFLoader();
             loader.load(
-                "{model_url}",
+                modelUrl,
                 function(gltf) {{
                     carModel = gltf.scene;
 
@@ -133,7 +141,7 @@ def render_3d_car(glb_filename: str = "chevrolet_corvette_c5_blue.glb", height: 
                     }}
                 }},
                 function(err) {{
-                    document.getElementById('loader').innerText = 'Could not fetch model file. Check static file path: {model_url}';
+                    document.getElementById('loader').innerText = 'Could not fetch model file. Check URL: ' + modelUrl;
                     console.error(err);
                 }}
             );
